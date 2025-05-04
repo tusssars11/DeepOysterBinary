@@ -1,58 +1,72 @@
-# Oyster Quality Classification - Project Summary
 
-This project focuses on building a binary image classification model to determine the quality of oysters (good vs. bad) using computer vision techniques and deep learning.
+#  DeepOysterBinary
 
-# Project Directory: DeepOysterBinary
+This project uses deep learning (MobileNetV2) to classify oyster images into **binary categories**: `good` or `bad`. It includes training, evaluation, and explainability techniques (like Grad-CAM) to understand the model’s predictions and error patterns.
 
-This folder contains all the necessary components for training and evaluating an image classification model to classify oyster quality as either "good" or "bad".
+---
 
-##  Folder Structure & File Descriptions
+##  Project Structure
 
-- Dataset/  
-  → Contains the training and test image folders organized into subfolders based on class (`good`, `bad`).  
-  This is the main dataset used for training and evaluating the binary classifier.
+```plaintext
+DeepOysterBinary/
+│
+├── Dataset/                    # Main dataset: train/test images (augmented)
+├── datasetOriginalTest/       # Clean test set without augmentations
+├── DeepOysterBinary.ipynb     # Jupyter notebook with full model workflow
+├── LICENSE                    # Licensing terms (optional/custom)
+├── README.txt                 # Text version of this README
+└── README.md                  # GitHub-formatted README
+````
 
-- datasetOriginalTest/  
-  → Contains a separate, clean (unaugmented) test set used for evaluating the model's robustness on cleaner samples.
+---
 
-- DeepOysterBinary.ipynb  
-  → The Jupyter Notebook with all code, experiments, evaluation metrics, visualizations (confusion matrix, Grad-CAM), and step-by-step documentation. This is the main working file.
+##  Model Overview
 
-- README.txt  
-  → You're reading it! This file summarizes the project goal, directory layout, progress, and future directions.
+* **Model**: MobileNetV2 (transfer learning from ImageNet)
+* **Task**: Binary classification (bad vs. good oysters)
+* **Loss Function**: Binary Cross-Entropy with Logits
+* **Optimizer**: Adam
+* **Tools**: PyTorch, TorchVision, sklearn, seaborn, torchcam (Grad-CAM)
 
-- LICENSE.txt  
-  → Contains licensing or usage terms, if applicable. You can modify this file to reflect open-source or proprietary use depending on the project's future.
+---
 
-##  Objective:
-To develop a model that can accurately classify oyster images into "good" or "bad" categories. This can help improve food safety and automate inspection in aquaculture.
+##  Results
 
-## Progress Overview:
-- Started with a custom CNN model and analyzed its performance using accuracy, confusion matrix, and visualizations.
-- Used Grad-CAM to understand what parts of the oyster the model focused on.
-- Investigated misclassifications through brightness analysis and image-level inspection.
-- Switched to transfer learning with MobileNetV2 to improve accuracy and generalization.
-- Fine-tuned only the final classifier layer to prevent overfitting and retain pretrained features.
-- Achieved a final test accuracy of ~77.3% with balanced precision/recall on both classes.
+* Achieved **77% accuracy** on the test set after fine-tuning.
+* Significantly reduced loss from initial training phase.
+* False positives analyzed using Grad-CAM visualizations to assess what regions the model focuses on.
+* Applied model to clean and augmented test sets for consistency checks.
 
-##  Evaluation Tools:
-- Confusion matrix visualization using seaborn
-- Classification report (precision, recall, F1-score)
-- Grad-CAM for model interpretability
+---
 
-##  Next Steps:
-- Test the model on the California Oyster dataset from Kaggle to evaluate generalization.
-- Work with project experts to gather more diverse and higher-volume oyster data.
-- Expand the model from binary to multi-class classification (e.g., 5 oyster quality levels).
-- Explore augmentation and domain adaptation techniques for better transfer across datasets.
+##  Next Steps
 
-##  Technologies Used:
-- PyTorch & Torchvision
-- Pretrained MobileNetV2
-- scikit-learn for evaluation
-- Matplotlib & Seaborn for plotting
+* Expand dataset by including **California oysters** (e.g., from Kaggle) to test model generalizability.
+* Work with a project expert to **label more oyster data** or verify annotations.
+* Transition from binary to **multi-class classification (5 oyster quality levels)** if more data becomes available.
 
-##  Acknowledgements:
-- ChatGPT (OpenAI) for model guidance, debugging, and experimental design feedback.
+---
 
-This project is a work-in-progress aimed at building scalable AI-based inspection systems in aquaculture. Stay tuned for updates!
+##  References
+
+* [MobileNetV2 - TorchVision Models](https://pytorch.org/vision/stable/models/generated/torchvision.models.mobilenet_v2.html)
+* [TorchCam (Grad-CAM)](https://frgfm.github.io/torch-cam/)
+* [ChatGPT (OpenAI)](https://chat.openai.com) – Used for collaborative coding and debugging support
+* Custom oyster dataset from internal collection
+
+---
+
+##  Visual Insights
+
+Confusion matrices, Grad-CAM overlays, and classification reports are included in the notebook for detailed evaluation.
+
+---
+
+## 📬 Contact
+
+For questions, collaboration, or dataset inquiries, feel free to reach out via email or GitHub issues.
+
+---
+
+**License**: Custom (see `LICENSE` file)
+
