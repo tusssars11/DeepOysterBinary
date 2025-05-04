@@ -7,7 +7,7 @@ This project uses deep learning (MobileNetV2) to classify oyster images into **b
 
 ##  Project Structure
 
-```plaintext
+
 DeepOysterBinary/
 │
 ├── Dataset/                    # Main dataset: train/test images (augmented)
@@ -16,7 +16,7 @@ DeepOysterBinary/
 ├── LICENSE                    # Licensing terms (optional/custom)
 ├── README.txt                 # Text version of this README
 └── README.md                  # GitHub-formatted README
-````
+
 
 ---
 
@@ -47,7 +47,7 @@ DeepOysterBinary/
 
 ---
 
-##  References
+## 🔍 References
 
 * [MobileNetV2 - TorchVision Models](https://pytorch.org/vision/stable/models/generated/torchvision.models.mobilenet_v2.html)
 * [TorchCam (Grad-CAM)](https://frgfm.github.io/torch-cam/)
@@ -62,11 +62,12 @@ Confusion matrices, Grad-CAM overlays, and classification reports are included i
 
 ---
 
-## 📬 Contact
+##  Contact
 
 For questions, collaboration, or dataset inquiries, feel free to reach out via email or GitHub issues.
 
 ---
 
 **License**: Custom (see `LICENSE` file)
+
 
